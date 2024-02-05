@@ -374,6 +374,10 @@ export const productListController = async (req, res) => {
 export const searchProductsController = async (req, res) => {
   try {
     const { keyword } = req.params;
+    if (!keyword)
+      return res
+        .status(400)
+        .send({ message: "Please provide a keyword", success: false });
     const searchResults = await productModel
       .find({
         $or: [
