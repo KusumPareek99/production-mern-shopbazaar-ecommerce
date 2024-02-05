@@ -348,7 +348,7 @@ export const productCountController = async (req, res) => {
 export const productListController = async (req, res) => {
   try {
     const page = req.params.page ? req.params.page : 1;
-    const perPage = 2;
+    const perPage = 4;
     const products = await productModel
       .find({})
       .select("-photo")
